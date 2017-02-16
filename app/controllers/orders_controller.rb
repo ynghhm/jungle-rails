@@ -55,7 +55,6 @@ class OrdersController < ApplicationController
     end
     order.save!
     order
-
   end
 
   # returns total in cents not dollars (stripe uses cents as well)
