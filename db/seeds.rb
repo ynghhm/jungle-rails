@@ -135,31 +135,29 @@ cat3.products.create!({
 
 puts "DONE!"
 
+user1 = User.create! first_name: 'Young', last_name: 'Hahm', email: 'f@f.com', password_digest: '$2a$10$ZnA4s8Ds0W1ugsegUWylEehDfbStlCRyP7hE04MyRi5HyPyujIJGa'
 
-puts "Finding or Creating Categories ..."
+
+puts "Finding or Creating Reviews ..."
 
 prod1 = Product.find_or_create_by! name: 'Red Bookshelf'
 prod2 = Product.find_or_create_by! name: 'Electric Chair'
 prod3 = Product.find_or_create_by! name: 'Optimal Sleeping Bed'
 
-puts "Re-creating Products ..."
-
-Product.destroy_all
-
 prod1.reviews.create!({
-  user_id: 1,
-  description: 'This is rad.',
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(4),
   rating: 4
 })
 
 prod3.reviews.create!({
-  user_id: 1,
-  description: 'This is garbage.',
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(4),
   rating: 1
 })
 
 prod3.reviews.create!({
-  user_id: 1,
-  description: 'This is meh.',
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(4),
   rating: 3
 })
