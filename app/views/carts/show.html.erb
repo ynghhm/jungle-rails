@@ -1,3 +1,10 @@
+<% if cart.count === 0 %>
+  There's absolutely NOTHING in your cart.
+  <br>
+  <br>
+  Go back to <%= link_to 'HOME', '/' %> and put something in there.
+<% else %>
+
 <section class="cart-show">
 
   <header class="page-header">
@@ -51,3 +58,5 @@
   </div>
 
 </section>
+
+<% end %>
