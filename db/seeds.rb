@@ -134,3 +134,32 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+
+puts "Finding or Creating Categories ..."
+
+prod1 = Product.find_or_create_by! name: 'Red Bookshelf'
+prod2 = Product.find_or_create_by! name: 'Electric Chair'
+prod3 = Product.find_or_create_by! name: 'Optimal Sleeping Bed'
+
+puts "Re-creating Products ..."
+
+Product.destroy_all
+
+prod1.reviews.create!({
+  user_id: 1,
+  description: 'This is rad.',
+  rating: 4
+})
+
+prod3.reviews.create!({
+  user_id: 1,
+  description: 'This is garbage.',
+  rating: 1
+})
+
+prod3.reviews.create!({
+  user_id: 1,
+  description: 'This is meh.',
+  rating: 3
+})
