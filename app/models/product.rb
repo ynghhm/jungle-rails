@@ -12,4 +12,8 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def description
+    "#{name} #{quantity} #{price} #{category.name}"
+  end
+
 end
