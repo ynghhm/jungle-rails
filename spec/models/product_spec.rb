@@ -8,7 +8,7 @@ RSpec.describe Product, type: :model do
     it { is_expected.to validate_presence_of(:category)}
   end
 
-  context 'description' do
+  context 'describe' do
     before do
       @tops = Category.create(name: 'Tops')
     end
@@ -20,7 +20,7 @@ RSpec.describe Product, type: :model do
       quantity: 10,
       category: @tops
       )
-    expect(@product.description).to eq("Denim Shirt 10 20.00 Tops")
+    expect(@product.describe).to eq("Denim Shirt 10 20.00 Tops")
   end
   end
 end
