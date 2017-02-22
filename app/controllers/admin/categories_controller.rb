@@ -21,7 +21,7 @@ http_basic_authenticate_with name: ENV['ADMIN_USERNAME'], password: ENV['ADMIN_P
   end
 
   def destroy
-    @category = Category.find params[:name]
+    @category = Category.find params[:id]
     @category.destroy
     redirect_to [:admin, :categories], notice: 'Category deleted!'
   end
